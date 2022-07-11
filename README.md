@@ -102,3 +102,9 @@ The following reducer function supports the increase and decrease of a counter s
  - The difference between <code>Redux useSelector Hook</code> and <code>React useState hook</code> is that, while <code>useState hook</code> renders locally, <code>Redux useSelector Hook</code> renders globally.
  
  
+
+
+
+# Marvel API pubic key
+
+<code>57f4cc2966cd9c5211bd0ba1fd1cfe94</code>
