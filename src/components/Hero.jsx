@@ -12,26 +12,67 @@ const StyledHero = styled.div`
     height: 100%;
   }
 
-  div {
+  .hero__body {
     position: absolute;
-    top: 50%;
+    top: 0%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    height: 4rem;
+    color: lightgrey;
+    height: 100%;
+    font-size: 23px;
+
+    .hero__buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      button {
+        padding: 15px 10px;
+        cursor: pointer;
+        font-size: 20px;
+        border-radius: 20px;
+
+        &:nth-of-type(1) {
+          color: white;
+          background-color: orangered;
+          border: none;
+        }
+
+        &:nth-of-type(2) {
+          border: none;
+          a {
+            color: black;
+            text-decoration: none;
+          }
+          &:hover {
+            a {
+              color: white;
+            }
+            background-color: #333;
+          }
+        }
+      }
+    }
   }
 `;
 export default function Hero() {
   return (
     <StyledHero>
-      <img src="../images/15.jpg" alt="" />
-      <div>
+      <img src="../images/33.jpg" alt="" />
+      <div className="hero__body">
         <h2>Get Free Ticket for The FIFA World Cup</h2>
-        <p>when you buy from us</p>
+        <span>when you buy from us</span>
+        <div className="hero__buttons">
+          <button>Get a free coupon</button>
+          <button>
+            {" "}
+            <a href="#products">Start shopping Now</a>
+          </button>
+        </div>
       </div>
     </StyledHero>
   );

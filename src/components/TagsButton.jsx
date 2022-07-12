@@ -25,12 +25,13 @@ const StyledButton = styled.button`
 
 `;
 
-export default function TagsButton({ name, setTag }) {
+export default function TagsButton({ name, setTag, tag }) {
+  
   return (
     <StyledButton>
       <button
         onClick={() => {
-          setTag(name);
+       setTag(name);
         }}
 
       >

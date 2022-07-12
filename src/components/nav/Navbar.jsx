@@ -1,7 +1,8 @@
-import React from "react";
-import {  BsBag } from "react-icons/bs";
+import React, { useState } from "react";
+import { BsBag } from "react-icons/bs";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
+import ShoppingCart from "../ShoppingCart";
 
 const StyledNavbar = styled.nav`
   background-color: orangered;
@@ -30,16 +31,18 @@ const StyledNavbar = styled.nav`
   }
 `;
 export default function Navbar() {
-    const cart = useSelector((store)=> store.cart.cartItems)
+  const [showCart, setShowCart] = useState(false)
+  const cart = useSelector((store) => store.cart.cartItems);
   return (
-    <StyledNavbar>
-      <h5>Funky Shop</h5>
-      <div>
-        <BsBag />
+    < main style={{position:"relative"}}>
+      <StyledNavbar>
+        <h5>Funky Shop</h5>
         <div>
-            {cart.length > 1 ? <span>{cart.length}</span> : null }
+          <BsBag onClick={()=>setShowCart(!showCart)} style={{cursor: "pointer"}} />
+          <div>{cart.length > 1 ? <span>{cart.length}</span> : null}</div>
         </div>
-      </div>
-    </StyledNavbar>
+      </StyledNavbar>
+      <ShoppingCart showCart={showCart}/>
+    </ main>
   );
 }
