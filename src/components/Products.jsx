@@ -35,11 +35,10 @@ const StyledProducts = styled.div`
     }
   }
 
-  .detail__button{
+  .detail__button {
     width: 97%;
     display: flex;
     justify-content: flex-end;
-
   }
 
   .product__detail {
@@ -82,9 +81,8 @@ const StyledProducts = styled.div`
       }
     }
 
-    .search__container{
+    .search__container {
       max-width: 60vw;
-      
     }
   }
 
@@ -111,8 +109,8 @@ const StyledProducts = styled.div`
       }
     }
 
-    button:nth-of-type(1){
-      flex-grow: .41;
+    button:nth-of-type(1) {
+      flex-grow: 0.41;
       background-color: orangered;
       border: none;
       border-radius: 6px;
@@ -120,17 +118,17 @@ const StyledProducts = styled.div`
       font-weight: bold;
       cursor: pointer;
     }
-    
-    button:nth-of-type(2){
+
+    button:nth-of-type(2) {
       cursor: pointer;
-      flex-grow: .41;
+      flex-grow: 0.41;
       background-color: white;
       border: 1px solid #333;
       border-radius: 6px;
       color: black;
       font-weight: bold;
 
-      &:hover{
+      &:hover {
         background-color: #333;
         color: white;
       }
@@ -149,14 +147,13 @@ export default function Products() {
       : setFilteredImages(images.filter((image) => image.tag === tag));
   }, [tag]);
 
-  const handleSearch = async (event) =>{
+  const handleSearch = async (event) => {
     event.preventDefault();
+  };
 
-  }
-
-  const handleClearSearch = async (event) =>{
+  const handleClearSearch = async (event) => {
     event.preventDefault();
-  }
+  };
 
   return (
     <StyledProducts id="#products">
@@ -168,8 +165,7 @@ export default function Products() {
           value={value}
           onChange={(event) => setValue(event.target.value)}
         />
-        <button type="submit" onClick={()=> handleSearch()}>Search</button>
-        <button type="submit" onClick={()=> handleClearSearch()}>Clear Search</button>
+       
       </div>
       <div className="buttons">
         <TagsButton name="all" setTag={setTag} tag={tag} />
@@ -177,23 +173,25 @@ export default function Products() {
         <TagsButton name="home" setTag={setTag} tag={tag} />
         <TagsButton name="technology" setTag={setTag} tag={tag} />
       </div>
-      <div className="all__products">
-        {filteredImages.map((image) => (
-          <div key={image.id} className="card">
-            <img src={`../images/${image.imageName}`} alt={image.imageName} />
-            <div className="product__detail">
-              <h4>{image.title}</h4>
-              <p>
-                Lorem ipsum dolor minima, qui aspernatur maxime ea explicabo,
-                quasi doloribus rem ullam?
-              </p>
-              <div style={{ marginTop: "10px" }} className="detail__button">
-                <a href="#index">View Detail</a>
+      {filteredImages ? (<div className="all__products">
+        {filteredImages
+          .filter((image) => image.title.toLowerCase().includes(value))
+          .map((image) => (
+            <div key={image.id} className="card">
+              <img src={`../images/${image.imageName}`} alt={image.imageName} />
+              <div className="product__detail">
+                <h4>{image.title}</h4>
+                <p>
+                  Lorem ipsum dolor minima, qui aspernatur maxime ea explicabo,
+                  quasi doloribus rem ullam?
+                </p>
+                <div style={{ marginTop: "10px" }} className="detail__button">
+                  <a href="#index">View Detail</a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+      </div>): <h2>Out of stock</h2>}
     </StyledProducts>
   );
 }

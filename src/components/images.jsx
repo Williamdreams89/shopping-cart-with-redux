@@ -25,7 +25,7 @@ export const images = [
     { id: "22", imageName: "22.jpg", tag: "fashion", title:"Gent's Gray Cotton Sleeves" },
     { id: "23", imageName: "23.jpg", tag: "technology", title:"Music Headkit" },
     { id: "24", imageName: "24.jpg", tag: "home", title:"Modern Kettle" },
-    { id: "24", imageName: "25.jpg", tag: "fashion", title:"American" },
+    { id: "25", imageName: "25.jpg", tag: "fashion", title:"American" },
     { id: "26", imageName: "26.jpg", tag: "fashion", title:"African Handbag" },
     { id: "27", imageName: "27.jpg", tag: "technology", title:"iPhone 13 Pro Max" },
     { id: "28", imageName: "28.png", tag: "home", title:"Recipe Tray" },
